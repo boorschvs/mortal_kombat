@@ -1,0 +1,102 @@
+body {
+    position: relative;
+    height: 100vh;
+    background: url('../images/bg/bg.jpg') no-repeat center center;
+    overflow: hidden;
+    font-family: 'Mortal Kombat 4', sans-serif;
+}
+
+/* STARTING MENY */
+.mortal-kombat-menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.mortal-kombat-menu span {
+    display: block;
+    font-size: 76px;
+    color: black;
+    margin: 5px 0;
+    cursor: pointer;
+}
+/* SELECT MENU */
+.selecting-menu h1 {
+    text-align: center;
+    font-size: 76px;
+}
+/* PERSONAGE LIST */
+.personage_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px 0;
+}
+.personage_list .personage.active img{
+    border: 3px solid rgb(3, 172, 3);
+    border-radius: 16px
+}
+.personage_list .personage{
+    width: calc(20% - 1px);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personage_list .personage img {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+    padding: 25px;
+    border: 3px solid transparent;
+}
+
+
+/* Animation */
+/* 
+div[data-show='true']{
+    opacity: 1;
+    animation: animation_show 0.5s forwards;
+}
+
+div[data-show='false']{
+    opacity: 1;
+    animation: animation_hide 0.5s forwards;
+}
+@keyframes animation_show {
+    0% {transform: translate(-50%, -150%);}
+    100% {transform: translate(-50%, -50%);}
+}
+@keyframes animation_hide {
+    0% {transform: translate(-50%, -150%);}
+    100% {transform: translate(-50%, 300%);}
+} */
+
+
+/* .request-modal.animation-status[data-show='true'] .request-modal-container {
+    transform: translateX(150%);
+    animation: animation_hide 0.5s forwards;
+}
+.request-modal[data-show='true']{
+    opacity: 1;     
+}
+.request-modal[data-show='true'] .request-modal-container {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background-color: #fff;
+    z-index: 100000;
+    border-radius: 16px 0px 0px 16px;
+    transform: translateX(-150%);
+    animation: animation_show 0.5s forwards;
+}
+@keyframes animation_show {
+    0% {transform: translateX(150%);}
+    100% {transform: translateY(0);}
+}
+@keyframes animation_hide {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(150%);}
+} */
