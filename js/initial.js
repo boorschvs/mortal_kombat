@@ -110,9 +110,7 @@ window.mortal_kombat  = {
 		mortal_kombat.getElements();
 		let el = mortal_kombat.elements;
 		let gl = mortal_kombat.globals;
-
 		mortal_kombat.starting_page()
-
 	},
 	modal(text){
 		let el = mortal_kombat.elements;
@@ -172,7 +170,6 @@ window.mortal_kombat  = {
 		menu.appendChild(menu_btn1);
 		menu.appendChild(menu_btn2);
 
-
 		setTimeout(()=> {
 			menu.dataset.show	= true;
 		}, 200)
@@ -185,6 +182,8 @@ window.mortal_kombat  = {
 	selecting_page(games){
 		let el = mortal_kombat.elements;
 		let gl = mortal_kombat.globals;
+
+		mortal_kombat.sound()
 
 		if(games){
 			gl.two_players = true;
@@ -497,10 +496,17 @@ window.mortal_kombat  = {
 			mortal_kombat.finish_him()
 		}, 4000)
 	},
-	finish_him(){
+	sound(){
 		let el = mortal_kombat.elements;
 		let gl = mortal_kombat.globals;
 
+		var audio = new Audio('./sound/sound.mp3');
+			audio.loop = true;
+			audio.play();
+	},
+	finish_him(){
+		let el = mortal_kombat.elements;
+		let gl = mortal_kombat.globals;
 
 		let video 				= document.createElement('video');
 			video.width 		= '1170';
