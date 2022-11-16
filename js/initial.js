@@ -427,28 +427,11 @@ window.mortal_kombat  = {
 		});	
 
 		let change = (el)=> {
-			switch (el) {
-				case 81:
-					change_personage(el);
-					break;
-				case 87:
-					change_personage(el);
-					break;
-				case 69:
-					change_personage(el);
-					break;
-				case 82:
-					change_personage(el);
-					break;
-				case 84:
-					change_personage(el);
-					break;
-				case 89:
-					change_personage(el);
-					break;
 
+			if(navigation.some((x)=> { return x == el})){
+				change_personage(el);
 			}
-
+	
 			function change_personage(id){
 		
 				document.querySelectorAll('.random_list ul li').forEach((li)=> {
