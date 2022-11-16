@@ -5,98 +5,199 @@ body {
     overflow: hidden;
     font-family: 'Mortal Kombat 4', sans-serif;
 }
-
+.bg {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+}
+.white {
+    color:rgba(255, 255, 255, 0.75);
+}
+.title {
+    margin: 25px 0;
+    font-size: 120px;
+}
+h1 {
+    text-align: center;
+    font-size: 76px;
+}
+#motral-kombat {
+    width: 1170px;
+    margin: 0 auto; 
+}
+/* MODAL */
+.container-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.container-modal .modal {
+    background: rgba(0, 0, 0, 0.75);
+    color:rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.container-modal .modal[data-modal='true']{
+    height: 100px;
+    opacity: 1;
+    transition: all 0.3s;
+}
+.container-modal .modal[data-modal='false']{
+    height: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
 /* STARTING MENY */
 .mortal-kombat-menu {
     position: absolute;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
 }
+
 .mortal-kombat-menu span {
     display: block;
     font-size: 76px;
-    color: black;
     margin: 5px 0;
     cursor: pointer;
 }
-/* SELECT MENU */
-.selecting-menu h1 {
-    text-align: center;
-    font-size: 76px;
+/* PREVIE MINI */
+.preview_parsonage{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
 }
+.preview_parsonage img {
+    position: absolute;
+    width: 150px;
+    top: 50%;
+}
+.preview_parsonage img:first-child {
+    left: -20%;
+    transform: translateY(-50%);
+}
+.preview_parsonage img:nth-child(2) {
+    right: -20%;
+    -webkit-transform: scaleX(-1) translateY(-50%);
+    transform: scaleX(-1) translateY(-50%);
+}
+
 /* PERSONAGE LIST */
 .personage_list {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 20px 0;
+    z-index: 10;
 }
-.personage_list .personage.active img{
-    border: 3px solid rgb(3, 172, 3);
-    border-radius: 16px
+.personage_list .personage.active{
+    border: 3px solid rgba(255, 255, 255, 0.75)!important;
+}
+.personage_list .personage[data-player='1']{
+    position: relative;
+    border: 3px solid rgba(3, 172, 3, 0.75);
+}
+.personage_list .personage[data-player='2']{
+    position: relative;
+    border: 3px solid rgba(199, 12, 12, 0.75);
+}
+.personage_list .personage[data-player='1']:after{
+    content: '1';
+    color: rgba(3, 172, 3, 0.75);
+}
+.personage_list .personage[data-player='2']:after{
+    content: '2';
+    color: rgba(199, 12, 12, 0.75);
+}
+.personage_list .personage[data-player='1']:after,
+.personage_list .personage[data-player='2']:after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 61px;
 }
 .personage_list .personage{
-    width: calc(20% - 1px);
+    position: relative;
+    width: calc(20% - 18px);
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid transparent;
+    border-radius: 16px;
+    margin: 6px;
+}
+.personage_list .personage p {
+    margin: 0;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
 }
 .personage_list .personage img {
     width: 200px;
     height: 100px;
     object-fit: contain;
     padding: 25px;
-    border: 3px solid transparent;
 }
+/* PREVIE PAGE */
+.previe {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.previe p {
+    margin: 0;
+    font-size: 46px;
+    white-space: pre;
+}
+.previe .previe-fighter {
+    text-align: center;
+}
+.previe .previe-fighter img{
+    width:250px;
+    height: 250px;
+    object-fit: contain;
+}
+.previe img.two:last-child {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.random_list ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+.random_list ul li {
+    width: 15%;
+    list-style: none;
+    text-align: center;
+    color:rgba(255, 255, 255, 0.75);
+}
+.random_list ul li img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+/*  transition */
 
-
-/* Animation */
-/* 
 div[data-show='true']{
     opacity: 1;
-    animation: animation_show 0.5s forwards;
+    transition: all 0.3s;
 }
-
 div[data-show='false']{
-    opacity: 1;
-    animation: animation_hide 0.5s forwards;
+    opacity: 0;
+    transition: all 0.3s;
+    height: 0;
+    overflow: hidden;
 }
-@keyframes animation_show {
-    0% {transform: translate(-50%, -150%);}
-    100% {transform: translate(-50%, -50%);}
-}
-@keyframes animation_hide {
-    0% {transform: translate(-50%, -150%);}
-    100% {transform: translate(-50%, 300%);}
-} */
-
-
-/* .request-modal.animation-status[data-show='true'] .request-modal-container {
-    transform: translateX(150%);
-    animation: animation_hide 0.5s forwards;
-}
-.request-modal[data-show='true']{
-    opacity: 1;     
-}
-.request-modal[data-show='true'] .request-modal-container {
-    position: absolute;
-    right: 0;
-    height: 100vh;
-    top: 0;
-    background-color: #fff;
-    z-index: 100000;
-    border-radius: 16px 0px 0px 16px;
-    transform: translateX(-150%);
-    animation: animation_show 0.5s forwards;
-}
-@keyframes animation_show {
-    0% {transform: translateX(150%);}
-    100% {transform: translateY(0);}
-}
-@keyframes animation_hide {
-    0% {transform: translateX(0);}
-    100% {transform: translateX(150%);}
-} */
